@@ -1,10 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useReducer, useEffect, useState } from 'react';
 import styles from './Counter.css';
 
 const colors = {
   yellow: 'rgb(236, 222, 153)',
   green: 'rgb(52, 211, 153)',
   red: 'rgb(239, 68, 68)',
+};
+
+const initialState = { count: 0 };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, count: state.count + 1 };
+    case 'DECREMENT':
+      return { ...state, count: state.count - 1 };
+    case 'RESET':
+      return { ...state, count: 0 };
+  }
 };
 
 export default function Counter() {
