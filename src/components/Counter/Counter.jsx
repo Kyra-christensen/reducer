@@ -52,11 +52,11 @@ export default function Counter() {
 
   return (
     <main className={styles.main}>
-      <h1 style={{ color: currentColor }}>{count}</h1>
+      <h1 style={{ color: currentColor }}>{state.count}</h1>
       <div>
         <button
           type="button"
-          onClick={increment}
+          onClick={handleIncrement}
           aria-label="increment"
           style={{ backgroundColor: colors.green }}
         >
@@ -64,7 +64,7 @@ export default function Counter() {
         </button>
         <button
           type="button"
-          onClick={decrement}
+          onClick={handleDecrement}
           aria-label="decrement"
           style={{ backgroundColor: colors.red }}
         >
@@ -73,7 +73,7 @@ export default function Counter() {
         <button
           type="button"
           aria-label="reset"
-          onClick={reset}
+          onClick={handleReset}
           style={{ backgroundColor: colors.yellow }}
         >
           Reset
