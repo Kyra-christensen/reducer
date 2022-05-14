@@ -21,33 +21,33 @@ const reducer = (state, action) => {
 };
 
 export default function Counter() {
-  const [count, setCount] = useState(0);
+  const [state, dispatch] = useState(reducer, initialState);
   const [currentColor, setCurrentColor] = useState(colors.yellow);
 
   useEffect(() => {
-    if (count === 0) {
+    if (state.count === 0) {
       setCurrentColor(colors.yellow);
     }
 
-    if (count > 0) {
+    if (state.count > 0) {
       setCurrentColor(colors.green);
     }
 
-    if (count < 0) {
+    if (state.count < 0) {
       setCurrentColor(colors.red);
     }
-  }, [count]);
+  }, [state.count]);
 
-  const increment = () => {
-    setCount((prevState) => prevState + 1);
+  const handleIncrement = () => {
+    dispatch({ type: 'INCREMENT' });
   };
 
-  const decrement = () => {
-    setCount((prevState) => prevState - 1);
+  const handleDecrement = () => {
+    dispatch({ type: 'DECREMENT' });
   };
 
-  const reset = () => {
-    setCount(0);
+  const handleReset = () => {
+    dispatch({ type: 'RESET' });
   };
 
   return (
