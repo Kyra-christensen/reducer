@@ -21,7 +21,7 @@ const reducer = (state, action) => {
 };
 
 export default function Counter() {
-  const [state, dispatch] = useState(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [currentColor, setCurrentColor] = useState(colors.yellow);
 
   useEffect(() => {
